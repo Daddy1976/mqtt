@@ -6,13 +6,13 @@ Before using in each file, you need to search and change YourVictronID to "Your 
 
 you also need to check the path in state_topic and command_topic
 
-example:
-
-state_topic: 'N/my_victron_id/vebus/276/Mode'
 
 use mqtt explorer to check to the relevance of the path for functionality
 
-it may be necessary to:
+example:
+state_topic: 'N/my_victron_id/vebus/276/Mode'
+
+can be changed:
 state_topic: 'N/your_victron_id/vebus/279/Mode'
 
 note the different number behind the vebus. it may be different for you because victron assigns the port addressing itself.
