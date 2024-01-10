@@ -4,6 +4,20 @@ To use, copy all items to the created MQTT directory in HomeAssistant (File Edit
 
 Before using in each file, you need to search and change YourVictronID to "Your Victron ID" every single name
 
+you also need to check the path in state_topic and command_topic
+
+example:
+
+state_topic: 'N/my_victron_id/vebus/276/Mode'
+
+use mqtt explorer to check and pay attention to the relevance of the path for functionality
+
+it may be necessary to:
+state_topic: 'N/your_victron_id/vebus/279/Mode'
+
+note the different number behind the vebus. it may be different for you because victron assigns the port addressing itself.
+This also applies to Pylontech and MPPT and other devices
+
 install and configure mqtt integration
 https://www.home-assistant.io/integrations/mqtt
 
