@@ -10,7 +10,7 @@ example:
 
 state_topic: 'N/my_victron_id/vebus/276/Mode'
 
-use mqtt explorer to check and pay attention to the relevance of the path for functionality
+use mqtt explorer to check to the relevance of the path for functionality
 
 it may be necessary to:
 state_topic: 'N/your_victron_id/vebus/279/Mode'
