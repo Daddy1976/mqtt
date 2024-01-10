@@ -1,0 +1,122 @@
+# -------------- Multiplus -----------------------------------------------------------------------
+
+         
+ - binary_sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Leds/Absorption'
+    name: 'Led Absorption'
+    unique_id: 'vebus/276/Leds/Absorption'
+    payload_on: "1"
+    payload_off: "0"
+    value_template: '{{ value_json.value | int }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - binary_sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Leds/Bulk'
+    name: 'Led Bulk'
+    unique_id: 'vebus/276/Leds/Bulk'
+    payload_on: "1"
+    payload_off: "0"
+    value_template: '{{ value_json.value | int }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - binary_sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Leds/Float'
+    name: 'Led Float'
+    unique_id: 'vebus/276/Leds/Float'
+    value_template: '{{ value_json.value | int }}'
+    payload_on: "1"
+    payload_off: "0"
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - binary_sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Leds/Inverter'
+    name: 'Led Inverter'
+    unique_id: 'vebus/276/Leds/Inverter'
+    payload_on: "1"
+    payload_off: "0"
+    value_template: "{{ value_json.value | int }}"
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - binary_sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Leds/LowBattery'
+    name: 'Led LowBattery'
+    unique_id: 'vebus/276/Leds/LowBattery'
+    payload_on: "1"
+    payload_off: "0"
+    value_template: '{{ value_json.value | int }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - binary_sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Leds/Mains'
+    name: 'Led Main'
+    unique_id: 'vebus/276/Leds/Main'
+    payload_on: "1"
+    payload_off: "0"
+    value_template: '{{ value_json.value | int }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - binary_sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Leds/Overload'
+    name: 'Led Overload'
+    unique_id: 'vebus/276/Leds/Overload'
+    payload_on: "1"
+    payload_off: "0"
+    value_template: '{{ value_json.value | int }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - binary_sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Leds/Temperature'
+    name: 'Led Temperature'
+    unique_id: 'vebus/276/Leds/Temperature'
+    payload_on: "1"
+    payload_off: "0"
+    value_template: '{{ value_json.value | int }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}

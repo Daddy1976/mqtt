@@ -1,0 +1,1752 @@
+ - sensor:
+    state_topic: 'N/YourVictronID/settings/0/Settings/SystemSetup/MaxChargeCurrent'
+    name: 'DVCC system max charge current'
+    unique_id: '/Settings/SystemSetup/MaxChargeCurrent'
+    unit_of_measurement: 'A'
+    state_class: 'measurement'
+    device_class: 'current'
+    value_template: "{{ value_json.value }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - sensor: # Maximálne napájanie systému do siete
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/MaxFeedInPower'
+    name: 'Maximum System Grid Feed In'
+    unique_id: 'MaxFeedInPower'
+    unit_of_measurement: 'W'
+    state_class: 'measurement'
+    device_class: 'power'
+    value_template: "{{ value_json.value }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - sensor: # Stav obmedzenia siete
+    state_topic: 'N/YourVictronID/hub4/0/PvPowerLimiterActive'
+    name: 'Grid FeedIn ON/OFF'
+    unique_id: 'PvPowerLimiterActive'
+    #device_class: 'enum'
+    value_template: "{{['OFF', 'ON'][value_json.value] }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/settings/0/Settings/SystemSetup/MaxChargeVoltage'
+    name: 'Limit Battery Voltage'
+    unique_id: 'MaxChargeVoltage'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    state_class: 'measurement'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - sensor: # Stav obmedzenia siete
+    state_topic: 'N/YourVictronID/settings/0/Settings/SystemSetup/AcInput1'
+    name: 'AC Vstup 1'
+    unique_id: 'AcInput1'
+    device_class: 'enum'
+    value_template: >-
+        {{ ['N/A', 'Grid', 'Gen', 'Breh'][value_json.value] }}
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - sensor: # Stav obmedzenia siete
+    state_topic: 'N/YourVictronID/settings/0/Settings/SystemSetup/AcInput2'
+    name: 'AC Vstup 2'
+    unique_id: 'AcInput2'
+    device_class: 'enum'
+    value_template: >-
+        {{ ['N/A', 'Grid', 'Gen', 'Breh'][value_json.value] }}
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Serial'
+    name: 'Serial Number'
+    unique_id: 'cerbo gx serial'
+    value_template: "{{ value_json.value }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/Consumption/L1/Power'
+    name: 'AC Consumption L1'
+    unit_of_measurement: 'W'
+    device_class: 'apparent_power'
+    unique_id: '/Ac/Consumption/L1/Power'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/Consumption/L2/Power'
+    name: 'AC Consumption L2'
+    unit_of_measurement: 'W'
+    device_class: 'apparent_power'
+    unique_id: '/Ac/Consumption/L2/Power'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/Consumption/L3/Power'
+    name: 'AC Consumption L3'
+    unit_of_measurement: 'W'
+    device_class: 'apparent_power'
+    unique_id: '/Ac/Consumption/L3/Power'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/Battery/Voltage'
+    name: 'Battery Voltage (System)'
+    unique_id: '/Dc/Battery/Voltage'
+    state_class: 'measurement'
+    device_class: 'voltage'
+    unit_of_measurement: 'V'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/Battery/Current'
+    name: 'Battery Current (System)'
+    unique_id: '/Dc/Battery/Current'
+    state_class: 'measurement'
+    device_class: 'current'
+    unit_of_measurement: 'A'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/Battery/Power'
+    name: 'Battery Power (System)'
+    unique_id: '/Dc/Battery/Power'
+    state_class: 'measurement'
+    device_class: 'power'
+    unit_of_measurement: 'W'
+    icon: 'mdi:battery-high'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/Battery/Soc'
+    name: 'Battery SoC (System)'
+    unique_id: '/Dc/Battery/Soc'
+    state_class: 'measurement'
+    unit_of_measurement: '%'
+    device_class: 'battery'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/Battery/State'
+    name: 'Battery state (System)'
+    unique_id: '/Dc/Battery/State'
+    value_template: >-
+        {{ ['Idle','Charge', 'Discharge'][value_json.value] }}
+    icon: mdi:state-machine
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/System/Power'
+    name: 'DC System Power'
+    unique_id: '/Dc/System/Power'
+    state_class: 'measurement'
+    unit_of_measurement: 'W'
+    device_class: 'power'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/Vebus/Current'
+    name: 'VE.Bus charge current (System)'
+    unique_id: '/Dc/Vebus/Current'
+    state_class: 'measurement'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/Vebus/Power'
+    name: 'VE.Bus charge power (System)'
+    unique_id: '/Dc/Vebus/Power'
+    state_class: 'measurement'
+    unit_of_measurement: 'W'
+    device_class: 'power'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/Pv/Power'
+    name: 'PV - DC-coupled power'
+    unique_id: 'Dc/Pv/Power'
+    state_class: 'measurement'
+    unit_of_measurement: 'W'
+    device_class: 'power'
+    icon: 'mdi:solar-power'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/temperature/24/Temperature'
+    name: 'Temp 1'
+    unique_id: 'temperature/24/Temperature'
+    state_class: 'measurement'
+    unit_of_measurement: '°C'
+    device_class: 'temperature'
+    icon: 'mdi:thermometer'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/temperature/25/Temperature'
+    name: 'Temp 2'
+    unique_id: 'temperature/25/Temperature'
+    state_class: 'measurement'
+    unit_of_measurement: '°C'
+    device_class: 'temperature'
+    icon: 'mdi:thermometer'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/temperature/26/Temperature'
+    name: 'Temp 3'
+    unique_id: 'temperature/26/Temperature'
+    state_class: 'measurement'
+    unit_of_measurement: '°C'
+    device_class: 'temperature'
+    icon: 'mdi:thermometer'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+        
+ - sensor:
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/BatteryLife/SocLimit'
+    name: 'BatteryLife SoC limit (read only)'
+    unique_id: '/Settings/Cgwacs/BatteryLife/SocLimit'
+    device_class: 'battery'
+    unit_of_measurement: '%'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+         identifiers: [
+          "Victron Cerbo GX"
+          ],
+         manufacturer: "Victron Energy",
+         model: "Cerbo GX",
+         name: "ESS"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Dc/Pv/Current'
+    name: 'Panel Current'
+    unique_id: '/system/0/Dc/Pv/Current'
+    device_class: 'current'
+    unit_of_measurement: 'A'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Victron Cerbo GX"
+          ],
+         manufacturer: "Victron Energy",
+         model: "Cerbo GX",
+         name: "ESS"}
+
+ - sensor:
+    state_topic: 'N/YourVictronID/acload/32/Ac/L1/Energy/Forward'
+    name: 'L1 Energy'
+    unique_id: 'ET112 L1 kWh'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "ET"
+          ],
+         manufacturer: "Carlo Gavazzi",
+         model: "ET 112",
+         name: "AcLoad"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/acload/32/Ac/L1/Power'
+    name: 'L1 Power'
+    unique_id: '32/Ac/L1/Power'
+    unit_of_measurement: 'W'
+    state_class: 'measurement'
+    device_class: 'apparent_power'
+    icon: 'mdi:home-import-outline'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "ET"
+          ],
+         manufacturer: "Carlo Gavazzi",
+         model: "ET 112",
+         name: "AcLoad"}
+ - sensor:
+    state_topic: 'N/YourVictronID/acload/32/Ac/L1/Voltage'
+    name: 'L1 Voltage'
+    unique_id: '32/Ac/L1/Voltage'
+    unit_of_measurement: 'V'
+    state_class: 'measurement'
+    device_class: 'voltage'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "ET"
+          ],
+         manufacturer: "Carlo Gavazzi",
+         model: "ET 112",
+         name: "AcLoad"}
+ - sensor:
+    state_topic: 'N/YourVictronID/acload/32/Ac/L1/Current'
+    name: 'L1 Current'
+    unique_id: '32/Ac/L1/Current'
+    unit_of_measurement: 'A'
+    state_class: 'measurement'
+    device_class: 'current'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "ET"
+          ],
+         manufacturer: "Carlo Gavazzi",
+         model: "ET 112",
+         name: "AcLoad"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/acload/32/Serial'
+    name: 'Serial Number'
+    unique_id: 'et112 serial'
+    value_template: "{{ value_json.value }}"
+    device: {
+         identifiers: [
+          "ET"
+          ],
+         manufacturer: "Carlo Gavazzi",
+         model: "ET 112",
+         name: "AcLoad"}
+
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/ActiveIn/L1/P'
+    name: 'Input power 1'
+    unit_of_measurement: 'W'
+    device_class: 'apparent_power'
+    unique_id: '/Ac/ActiveIn/L1/P'
+    value_template: '{{ value_json.value | round(0) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/ActiveIn/L1/F'
+    name: 'Input Freq 1'
+    unit_of_measurement: 'Hz'
+    device_class: 'frequency'
+    unique_id: '/Ac/ActiveIn/L1/F'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/ActiveIn/L1/I'
+    name: 'Input Current 1'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    unique_id: '/Ac/ActiveIn/L1/I'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/ActiveIn/L1/V'
+    name: 'Input Voltage 1'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    unique_id: '/Ac/ActiveIn/L1/V'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/Out/L1/P'
+    name: 'Output power 1'
+    unit_of_measurement: 'W'
+    device_class: 'apparent_power'
+    unique_id: '/Ac/Out/L1/P'
+    value_template: '{{ value_json.value | round(0) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/Out/L1/F'
+    name: 'Output Freq 1'
+    unit_of_measurement: 'Hz'
+    device_class: 'frequency'
+    unique_id: '/Ac/Out/L1/F'
+    value_template: '{{ value_json.value | round(2) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/Out/L1/I'
+    name: 'Output Current 1'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    unique_id: '/Ac/Out/L1/I'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/Out/L1/V'
+    name: 'Output Voltage 1'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    unique_id: '/Ac/Out/L1/V'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/ActiveIn/L2/Power'
+    name: 'Input power 2'
+    unit_of_measurement: 'W'
+    device_class: 'apparent_power'
+    unique_id: '/Ac/ActiveIn/L2/Power'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/ActiveIn/L3/Power'
+    name: 'Input power 3'
+    unit_of_measurement: 'W'
+    device_class: 'apparent_power'
+    unique_id: '/Ac/ActiveIn/L3/Power'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Dc/0/Voltage'
+    name: 'DC Voltage'
+    unique_id: '276/Dc/0/Voltage'
+    state_class: 'measurement'
+    device_class: 'voltage'
+    unit_of_measurement: 'V'
+    value_template: '{{ value_json.value | round(2) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Dc/0/Current'
+    name: 'DC Current'
+    unique_id: '276/Dc/0/Current'
+    state_class: 'measurement'
+    device_class: 'current'
+    unit_of_measurement: 'A'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Dc/0/Power'
+    name: 'DC Power'
+    unique_id: '276/Dc/0/Power'
+    unit_of_measurement: 'W'
+    device_class: 'energy'
+    state_class: 'measurement'
+    icon: 'mdi:current-dc'
+    value_template: "{{ value_json.value }}"
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/ActiveIn/ActiveInput'
+    name: 'Active Input'
+    unique_id: '276/Ac/ActiveIn/ActiveInput'
+    value_template: >-
+        {% set i = value_json.value %}
+        {% if i == 240 %}
+        Disconnected
+        {% elif i == 1 %}
+        AC Input 2
+        {% else %}
+        AC Input 1
+        {% endif %}
+    icon: mdi:flash
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Soc'
+    name: 'VE.Bus state of charge'
+    unique_id: '276/Soc'
+    state_class: 'measurement'
+    device_class: 'battery'
+    unit_of_measurement: '%'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/State'
+    name: 'VE.Bus state'
+    unique_id: '276/State'
+    value_template: >-
+        {{ ['Off', 'Low Power', 'Fault', 'Bulk', 'Absorption', 'Float', 'Storage', 'Equalize', 'Passthru', 'Inverting', 'Power assist', 'Power supply'][value_json.value] }}
+    icon: mdi:state-machine
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Alarms/HighTemperature'
+    name: 'Temperature alarm'
+    unique_id: '276/Alarms/HighTemperature'
+    value_template: >-
+        {{ ['OK', 'Warning', 'Alarm'][value_json.value] }}
+    icon: 'mdi:alert-outline'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Alarms/LowBattery'
+    name: 'Low battery alarm'
+    unique_id: '276/Alarms/LowBattery'
+    value_template: >-
+        {{ ['OK', 'Warning', 'Alarm'][value_json.value] }}
+    icon: 'mdi:alert-outline'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Alarms/Overload'
+    name: 'Overload alarm'
+    unique_id: '276/Alarms/Overload'
+    value_template: >-
+        {{ ['OK', 'Warning', 'Alarm'][value_json.value] }}
+    icon: 'mdi:alert-outline'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Alarms/GridLost'
+    name: 'Grid Lost'
+    unique_id: '276/Alarms/GridLost'
+    value_template: >-
+        {{ ['OK', '', 'Alarm'][value_json.value] }}
+    icon: 'mdi:alert-outline'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Energy/AcIn1ToAcOut'
+    name: 'Energy AC-In 1 to AC-out'
+    unique_id: '276/Energy/AcIn1ToAcOut'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Energy/AcIn1ToInverter'
+    name: 'Energy AC-In 1 to Battery'
+    unique_id: '276/Energy/AcIn1ToInverter'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Energy/InverterToAcIn1'
+    name: 'Energy battery to AC-in 1'
+    unique_id: '276/Energy/InverterToAcIn1'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/Energy/InverterToAcOut'
+    name: 'Energy battery to AC-out'
+    unique_id: '276/Energy/InverterToAcOut'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+ - sensor:
+    state_topic: 'N/YourVictronID/vebus/276/VebusChargeState'
+    name: 'Charge State'
+    unique_id: '276/VebusChargeState'
+    value_template: >-
+        {{ ['Initialising', 'Bulk', 'Absorption', 'Float', 'Storage', 'Abs. Repeat', 'Abs. Forced', 'Equalise', 'Bulk Stopped', 'Unknown'][value_json.value] }}
+    icon: mdi:state-machine
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/History/Daily/0/Yield'
+    name: 'Today yield'
+    unique_id: '290/Yield/today'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: '{{ value_json.value | round(2) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/Yield/User'
+    name: 'Yield User'
+    unique_id: '290/Yield/user'
+    unit_of_measurement: 'kWh'
+    icon: mdi:solar-power
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: '{{ value_json.value | round(2) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/Yield/Power'
+    name: 'PV power'
+    unit_of_measurement: 'W'
+    unique_id: '290/Yield/Power'
+    icon: 'mdi:solar-power-variant'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/Pv/V'
+    name: 'Panel Voltage'
+    unique_id: '290/PV/V'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    state_class: 'measurement'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/ProductName'
+    name: 'Name'
+    unique_id: '290/name'
+    value_template: '{{ value_json.value }}'
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/Serial'
+    name: 'Serial'
+    unique_id: '290/serial'
+    value_template: '{{ value_json.value }}'
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/Dc/0/Voltage'
+    name: 'DC Voltage'
+    unique_id: '290/DC/V'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    state_class: 'measurement'
+    value_template: '{{ value_json.value | round(2) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/Dc/0/Current'
+    name: 'DC Current'
+    unique_id: '290/DC/A'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    state_class: 'measurement'
+    icon: 'mdi:current-dc'
+    value_template: '{{ value_json.value | round(2)}}'
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/Link/ChargeCurrent'
+    name: 'Charge Current'
+    unique_id: '290/Link/ChargeCurrent'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    state_class: 'measurement'
+    icon: 'mdi:current-dc'
+    value_template: '{{ value_json.value | round(1)}}'
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/290/State'
+    name: 'State'
+    unique_id: '290/State'
+    value_template: >-
+        {% set state = value_json.value %}
+        {% if state == 0 %}
+        Off
+        {% elif state == 2 %}
+        Error
+        {% elif state == 3 %}
+        Bulk
+        {% elif state == 4 %}
+        Absorbtion
+        {% elif state == 5 %}
+        Float
+        {% else %}
+        Ext. Control
+        {% endif %}
+    device: {
+         identifiers: [
+          "Victron MPPT150/45"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT150/45",
+         name: "SmartSolar Vchod"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/History/Daily/0/Yield'
+    name: 'Today yield'
+    unique_id: '277/Yield/today'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: '{{ value_json.value | round(2) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/Yield/User'
+    name: 'Yield User'
+    unique_id: '277/Yield/user'
+    unit_of_measurement: 'kWh'
+    icon: mdi:solar-power
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: '{{ value_json.value | round(2) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/Yield/Power'
+    name: 'PV power'
+    unit_of_measurement: 'W'
+    unique_id: '277/Yield/Power'
+    icon: 'mdi:solar-power-variant'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/Pv/V'
+    name: 'Panel Voltage'
+    unique_id: '277/PV/V'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    state_class: 'measurement'
+    value_template: '{{ value_json.value | round(1) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/ProductName'
+    name: 'Name'
+    unique_id: '277/name'
+    value_template: '{{ value_json.value }}'
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/Serial'
+    name: 'Serial'
+    unique_id: '277/serial'
+    value_template: '{{ value_json.value }}'
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/Dc/0/Voltage'
+    name: 'DC Voltage'
+    unique_id: '277/DC/V'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    state_class: 'measurement'
+    value_template: '{{ value_json.value | round(2) }}'
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+         
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/Dc/0/Current'
+    name: 'DC Current'
+    unique_id: '277/DC/A'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    state_class: 'measurement'
+    icon: 'mdi:current-dc'
+    value_template: '{{ value_json.value | round(2)}}'
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/Link/ChargeCurrent'
+    name: 'Charge Current'
+    unique_id: '277/Link/ChargeCurrent'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    state_class: 'measurement'
+    icon: 'mdi:current-dc'
+    value_template: '{{ value_json.value | round(1)}}'
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/solarcharger/277/State'
+    name: 'State'
+    unique_id: '277/State'
+    value_template: >-
+        {% set state = value_json.value %}
+        {% if state == 0 %}
+        Off
+        {% elif state == 2 %}
+        Error
+        {% elif state == 3 %}
+        Bulk
+        {% elif state == 4 %}
+        Absorbtion
+        {% elif state == 5 %}
+        Float
+        {% else %}
+        Ext. Control
+        {% endif %}
+    device: {
+         identifiers: [
+          "Victron MPPT250/60"
+          ],
+         manufacturer: "Victron Energy",
+         model: "MPPT250/60",
+         name: "SmartSolar Strecha"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Dc/0/Voltage'
+    name: 'Battery voltage'
+    unique_id: '512/Dc/0/Voltage'
+    state_class: 'measurement'
+    device_class: 'voltage'
+    unit_of_measurement: 'V'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Dc/0/Current'
+    name: 'Current'
+    unique_id: '512/Dc/0/Current'
+    state_class: 'measurement'
+    device_class: 'current'
+    unit_of_measurement: 'A'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Dc/0/Power'
+    name: 'Power'
+    unique_id: '512/Dc/0/Power'
+    state_class: 'measurement'
+    device_class: 'apparent_power'
+    unit_of_measurement: 'W'
+    icon: 'mdi:battery-charging'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Info/MaxDischargeCurrent'
+    name: 'Discharge Curr. Limit'
+    unique_id: '512/Info/MaxDischargeCurrent'
+    state_class: 'measurement'
+    device_class: 'current'
+    unit_of_measurement : 'A'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Info/MaxChargeCurrent'
+    name: 'Charge Curr. Limit'
+    unique_id: '512/Info/MaxChargeCurrent'
+    state_class: 'measurement'
+    device_class: 'current'
+    unit_of_measurement : 'A'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Info/BatteryLowVoltage'
+    name: 'Discharge Volt. Limit'
+    unique_id: '512/Info/BatteryLowVoltage'
+    state_class: 'measurement'
+    device_class: 'voltage'
+    unit_of_measurement : 'V'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Info/MaxChargeVoltage'
+    name: 'Charge Volt. Limit'
+    unique_id: '512/Info/MaxChargeVoltage'
+    state_class: 'measurement'
+    device_class: 'voltage'
+    unit_of_measurement : 'V'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: '/homeassistant'
+    name: 'Time Remain'
+    unique_id: 'mqtt battery time remain'
+    # unit_of_measurement: 'h'
+    #device_class: 'timestamp'
+    # state_class: 'measurement'
+    # value_template: "{{ value_json.Time_remain | timestamp_custom('%a %d-%m-%Y %-I:%M %p') }}"
+    value_template: "{{ as_timestamp(value_json.Time_Remain) | timestamp_custom ('%a %d %b, %H:%M') }}"
+    icon: mdi:clock-time-four-outline
+    device: {
+         identifiers: [
+          "MQTT"
+          ],
+         manufacturer: "None",
+         model: "MQTT",
+         name: "MQTT"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Soc'
+    name: 'Battery SoC'
+    unique_id: '512/Soc'
+    state_class: 'measurement'
+    unit_of_measurement: '%'
+    device_class: 'battery'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Soh'
+    name: 'Battery SoH'
+    unique_id: '512/Soh'
+    state_class: 'measurement'
+    unit_of_measurement: '%'
+    device_class: 'battery'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/System/MinCellTemperature'
+    name: 'Minimum cell temperature'
+    unique_id: '512/System/MinCellTemperature'
+    state_class: 'measurement'
+    unit_of_measurement: '°C'
+    device_class: 'temperature'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/System/MaxCellTemperature'
+    name: 'Maximum cell temperature'
+    unique_id: '512/System/MaxCellTemperature'
+    state_class: 'measurement'
+    unit_of_measurement: '°C'
+    device_class: 'temperature'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/System/MinCellVoltage'
+    name: 'Minimum cell voltage'
+    unique_id: '512/System/MinCellVoltage'
+    state_class: 'measurement'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    value_template: "{{ value_json.value | round(3) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/System/MaxCellVoltage'
+    name: 'Maximum cell voltage'
+    unique_id: '512/System/MaxCellVoltage'
+    state_class: 'measurement'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    value_template: "{{ value_json.value | round(3) }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/ProductName'
+    name: 'Product Name'
+    unique_id: '512/product/name'
+    value_template: "{{ value_json.value }}"
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/InstalledCapacity'
+    name: 'Installed Capacity'
+    unique_id: '512/installed/capacity'
+    unit_of_measurement: 'Ah'
+    value_template: "{{ value_json.value }}"
+    icon: 'mdi:home-battery-outline'
+    device: {
+         identifiers: [
+          "Pylontech"
+          ],
+         manufacturer: "Pylon Technologies, Co. Ltd,",
+         model: "US3000C",
+         name: "Pylontech"}
+ - sensor:
+    state_topic: 'N/YourVictronID/battery/512/Dc/0/Temperature'
+    name: 'Pylontech Temp'
+    unique_id: '512/Dc/0/Temperature'
+    state_class: 'measurement'
+    unit_of_measurement: '°C'
+    device_class: 'temperature'
+    icon: 'mdi:thermometer'
+    value_template: "{{ value_json.value | round(1) }}"
+    
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/Energy/Forward'
+    name: 'Total Forward'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total'
+    unique_id: '/Ac/Energy/Forward'
+    icon: 'mdi:transmission-tower-export'
+    value_template: "{{ (value_json.value + 106.2) | round(2) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/Energy/Reverse'
+    name: 'Total Reverse'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total'
+    unique_id: '/Ac/Energy/Reverse'
+    icon: 'mdi:transmission-tower-import'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/L1/Energy/Forward'
+    name: 'L1 - Energy from net'
+    unique_id: '40/Ac/L1/Energy/Forward'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: >-
+        {% set L = value_json.value %}
+        {% set L = L + 59.7 %}
+        {{ L | round (2) }}
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/L2/Energy/Forward'
+    name: 'L2 - Energy from net'
+    unique_id: '40/Ac/L2/Energy/Forward'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: >-
+        {% set L = value_json.value %}
+        {% set L = L + 13.9 %}
+        {{ L | round (2) }}
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/L3/Energy/Forward'
+    name: 'L3 - Energy from net'
+    unique_id: '40/Ac/L3/Energy/Forward'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: >-
+        {% set L = value_json.value %}
+        {% set L = L + 32.6 %}
+        {{ L | round (2) }}
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/L1/Energy/Reverse'
+    name: 'L1 - Energy to net'
+    unique_id: '40/Ac/L1/Energy/Reverse'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: "{{ value_json.value | round(4) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/L2/Energy/Reverse'
+    name: 'L2 - Energy to net'
+    unique_id: '40/Ac/L2/Energy/Reverse'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: "{{ value_json.value | round(4) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/L3/Energy/Reverse'
+    name: 'L3 - Energy to net'
+    unique_id: '40/Ac/L3/Energy/Reverse'
+    unit_of_measurement: 'kWh'
+    device_class: 'energy'
+    state_class: 'total_increasing'
+    value_template: "{{ value_json.value | round(4) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/ActiveIn/L1/Power'
+    name: 'L1 - Power'
+    unique_id: '40/Ac/L1/Power'
+    unit_of_measurement: 'W'
+    state_class: 'measurement'
+    device_class: 'apparent_power'
+    icon: 'mdi:transmission-tower-export'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/L1/Voltage'
+    name: 'L1 - Voltage'
+    unique_id: '40/Ac/L1/Voltage'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/ActiveIn/L1/Current'
+    name: 'L1 - Current'
+    unique_id: '40/Ac/L1/Current'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    state_class: 'measurement'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/ActiveIn/L2/Power'
+    name: 'L2 - Power'
+    unique_id: '40/Ac/L2/Power'
+    unit_of_measurement: 'W'
+    state_class: 'measurement'
+    device_class: 'apparent_power'
+    icon: 'mdi:transmission-tower-export'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/L2/Voltage'
+    name: 'L2 - Voltage'
+    unique_id: '40/Ac/L2/Voltage'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/ActiveIn/L2/Current'
+    name: 'L2 - Current'
+    unique_id: '40/Ac/L2/Current'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    state_class: 'measurement'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/ActiveIn/L3/Power'
+    name: 'L3 - Power'
+    unique_id: '40/Ac/L3/Power'
+    unit_of_measurement: 'W'
+    state_class: 'measurement'
+    device_class: 'apparent_power'
+    icon: 'mdi:transmission-tower-export'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/L3/Voltage'
+    name: 'L3 - Voltage'
+    unique_id: '40/Ac/L3/Voltage'
+    unit_of_measurement: 'V'
+    device_class: 'voltage'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/system/0/Ac/ActiveIn/L3/Current'
+    name: 'L3 - Current'
+    unique_id: '40/Ac/L3/Current'
+    unit_of_measurement: 'A'
+    device_class: 'current'
+    state_class: 'measurement'
+    value_template: "{{ value_json.value | round(1) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Serial'
+    name: 'Serial'
+    unique_id: '40/Serial'
+    value_template: "{{ value_json.value | round(0) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}
+         
+ - sensor:
+    state_topic: 'N/YourVictronID/grid/40/Ac/Frequency'
+    name: 'Frequency'
+    unique_id: '40/Ac/Frequency'
+    device_class: 'frequency'
+    unit_of_measurement: 'Hz'
+    value_template: "{{ value_json.value | round(2) }}"
+    device: {
+         identifiers: [
+          "Eastron"
+          ],
+         manufacturer: "Eastron",
+         model: "Eastron SDM630-Modbus v2",
+         name: "Grid"}

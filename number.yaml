@@ -1,0 +1,101 @@
+ - number: # Požadovaná hodnota výkonu siete
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/AcPowerSetPoint'
+    command_topic: 'W/YourVictronID/settings/0/Settings/CGwacs/AcPowerSetPoint'
+    name: 'AC Power Set Point'
+    unique_id: 'Settings/CGwacs/AcPowerSetPoint'
+    unit_of_measurement: 'W'
+    device_class: 'power'
+    min: 0
+    max: 1200
+    step: 50
+    mode: slider
+    command_template: '{"value": {{ value }} }'
+    value_template: '{{ value_json.value }}'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+ - number: # Povoliť/zakázať spoplatnenie
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/MaxChargePercentage'
+    command_topic: 'W/YourVictronID/settings/0/Settings/CGwacs/MaxChargePercentage'
+    name: 'ESS max charge current (fractional)'
+    unique_id: 'MaxChargePercentage'
+    unit_of_measurement: '%'
+    device_class: 'power_factor'
+    min: 0
+    max: 100
+    step: 1
+    mode: slider
+    command_template: '{"value": {{ value }} }'
+    value_template: '{{ value_json.value }}'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+
+ - number: # Maximálny výkon meniča
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/MaxDischargePower'
+    name: 'ESS max discharge power'
+    unique_id: 'MaxDischargePower'
+    command_topic: "W/YourVictronID/settings/0/Settings/CGwacs/MaxDischargePower"
+    device_class: 'power_factor'
+    min: -1
+    max: 3500
+    step: 1
+    mode: slider
+    command_template: '{"value": {{ value }} }'
+    value_template: '{{ value_json.value }}'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+        
+ - number:
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/BatteryLife/MinimumSocLimit'
+    name: 'Minimum SoC (unless grid fails)'
+    command_topic: "W/YourVictronID/settings/0/Settings/CGwacs/BatteryLife/MinimumSocLimit"
+    command_template: '{"value": {{ value | int }} }'
+    unique_id: '/Settings/CGwacs/BatteryLife/MinimumSocLimit'
+    unit_of_measurement: '%'
+    device_class: 'battery'
+    min: 10
+    max: 90
+    step: 5
+    mode: slider
+    value_template: "{{ value_json.value | int }}"
+    device: {
+         identifiers: [
+          "Victron Cerbo GX"
+          ],
+         manufacturer: "Victron Energy",
+         model: "Cerbo GX",
+         name: "ESS"}
+         
+ - number:
+    state_topic: 'N/YourVictronID/vebus/276/Ac/ActiveIn/CurrentLimit'
+    command_topic: 'W/YourVictronID/vebus/276/Ac/ActiveIn/CurrentLimit'
+    name: 'Input Current Limit'
+    unique_id: 'vebus/276/Ac/ActiveIn/CurrentLimit'
+    min: 1
+    max: 12
+    step: 0.5
+    mode: slider
+    command_template: '{"value": {{ value }} }'
+    value_template: '{{ value_json.value }}'
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}

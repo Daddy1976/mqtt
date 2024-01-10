@@ -1,0 +1,59 @@
+# ------------ ESS ----------------
+    
+ - select:
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/BatteryLife/State'
+    command_topic: 'W/YourVictronID/settings/0/Settings/CGwacs/BatteryLife/State'
+    name: 'BatteryLife state'
+    unique_id: '/Settings/CGwacs/BatteryLife/State'
+    command_template: >-
+        {% set values = { 'Optimized (with BatteryLife)':1, 'Consuption':2, 'Consuption (85%)':3, 'Consuption (100%)':4, 'SoC Limit (OFF)':5, 'Recharge/Below SoC 24h':6, 'Keep Batteries Charged':9, 'Optimized (without BatteryLife)':10, 'Optimized (Low)':11, 'Optimized (Recharge)':12} %}
+        { "value": {{values[value]}} }
+    value_template: >-
+        {% set values = { 1:'Optimized (with BatteryLife)', 2:'Consuption', 3:'Consuption (85%)', 4:'Consuption (100%)', 5:'SoC Limit (OFF)', 6:'Recharge/Below SoC 24h', 9:'Keep Batteries Charged', 10:'Optimized (without BatteryLife)', 11:'Optimized (Low)', 12:'Optimized (Recharge)'} %}
+        {% set num = value_json.value %}
+        {{ values[num] if num in values.keys() else 'Optimized (with BatteryLife)' }}
+    options:
+        - Optimized (with BatteryLife)
+        - Consuption
+        - Consuption (85%)
+        - Consuption (100%)
+        - SoC Limit (OFF)
+        - Recharge/Below SoC 24h
+        - Keep Batteries Charged
+        - Optimized (without BatteryLife)
+        - Optimized (Low)
+        - Optimized (Recharge)
+    icon: mdi:cog #mdi:state-machine
+    device: {
+         identifiers: [
+          "Victron Cerbo GX"
+          ],
+         manufacturer: "Victron Energy",
+         model: "Cerbo GX",
+         name: "ESS"}
+         
+ - select:
+    state_topic: 'N/YourVictronID/vebus/276/Mode'
+    command_topic: 'W/YourVictronID/vebus/276/Mode'
+    name: 'Switch Position'
+    unique_id: '276/Mode'
+    command_template: >-
+        {% set values = {'Charger':1, 'Inverter':2, '(ON)':3, '(OFF)':4} %}
+        { "value": {{values[value]}} }
+    value_template: >-
+        {% set values = {1:'Charger', 2:'Inverter', 3:'(ON)', 4:'(OFF)'} %}
+        {% set num = value_json.value %}
+        {{ values[num] if num in values.keys() else 'ON' }}
+    options:
+        - Charger
+        - Inverter
+        - (ON)
+        - (OFF)
+    icon: mdi:state-machine
+    device: {
+         identifiers: [
+          "Multiplus-II"
+          ],
+         manufacturer: "Victron Energy",
+         model: "48/3000/35-32",
+         name: "Multiplus-II"}

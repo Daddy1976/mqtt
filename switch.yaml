@@ -1,0 +1,116 @@
+ - switch: # Zapnutie/vypnutie meniča
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/MaxDischargePercentage'
+    name: 'Inverter ON/OFF'
+    command_topic: 'W/YourVictronID/settings/0/Settings/CGwacs/MaxDischargePercentage'
+    payload_on: '{"value": 100}'
+    payload_off: '{"value": 0}'
+    unique_id: 'MaxDischargePercentage'
+    value_template: >-
+          {% if value_json.value | int == 0 %}
+            {% set state_limit = 'OFF' %}
+          {% else %}
+            {% set state_limit = 'ON' %}
+          {% endif %}
+          {{ state_limit }}
+    state_on: 'ON'
+    state_off: 'OFF'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+ - switch: # Priveďte prebytočnú PV s jednosmernou väzbou do siete
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/OvervoltageFeedIn'
+    name: 'PV DC FeedIn'
+    unique_id: 'OvervoltageFeedIn'
+    command_topic: 'W/YourVictronID/settings/0/Settings/CGwacs/OvervoltageFeedIn'
+    payload_on: '{"value": 1}'
+    payload_off: '{"value": 0}'
+    value_template: "{{ value_json.value }}"
+    state_on: '1'
+    state_off: '0'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+        
+    
+ - switch: # Priveďte prebytočnú PV spojenú so striedavým prúdom do siete
+    state_topic: 'N/YourVictronID/settings/0/Settings/CGwacs/PreventFeedback'
+    name: 'PV AC FeedIn'
+    unique_id: 'PreventFeedback'
+    command_topic: 'W/YourVictronID/settings/0/Settings/CGwacs/PreventFeedback'
+    payload_on: '{"value": 0}'
+    payload_off: '{"value": 1}'
+    value_template: "{{ value_json.value }}"
+    state_on: '0'
+    state_off: '1'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+
+ - switch:
+    state_topic: 'N/YourVictronID/system/0/Relay/0/State'
+    name: 'Relay 1'
+    unique_id: 'cerbo gx relay 1'
+    command_topic: 'W/YourVictronID/system/0/Relay/0/State'
+    payload_on: '{"value": 1}'
+    payload_off: '{"value": 0}'
+    value_template: "{{ value_json.value | int }}"
+    state_on: '1'
+    state_off: '0'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+         
+         
+ - switch:
+    state_topic: 'N/YourVictronID/system/0/Relay/1/State'
+    name: 'Relay 2'
+    unique_id: 'cerbo gx relay 2'
+    command_topic: 'W/YourVictronID/system/0/Relay/1/State'
+    payload_on: '{"value": 1}'
+    payload_off: '{"value": 0}'
+    value_template: "{{ value_json.value | int }}"
+    state_on: '1'
+    state_off: '0'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
+        
+ - switch:
+    state_topic: 'N/YourVictronID/settings/0/Settings/Alarm/Audible'
+    name: ' Audiable Alarm'
+    unique_id: 'audio alarm'
+    command_topic: 'W/YourVictronID/settings/0/Settings/Alarm/Audible'
+    payload_on: '{"value": 1}'
+    payload_off: '{"value": 0}'
+    value_template: "{{ value_json.value | int }}"
+    icon: 'mdi:bell'
+    state_on: '1'
+    state_off: '0'
+    device: {
+        identifiers: [
+          "Victron Cerbo GX"
+          ],
+        manufacturer: "Victron Energy",
+        model: "Cerbo GX",
+        name: "Cerbo GX"}
