@@ -30,3 +30,12 @@ restart homeassistant
 go to settings -> devices and services -> mqtt
 
 you should see the devices there
+
+
+
+The Victron via MQTT must be woken repeatedly, otherwise it will go to sleep and not send data
+
+It is necessary to write to MQTT either through HA Automation or through Node Red
+  the record has the form: R/your_victron_id/keepalive
+
+I use Node Red for this recovery every 30 seconds
